@@ -1,0 +1,19 @@
+.video-list-grid {
+    display: grid;
+    gap: 1,5rem;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    box-sizing: border-box;
+    margin-left: auto;
+   margin-right: auto;
+   justify-items: center;
+   width: min(95%, 70rem);
+   margin-inline: auto;
+   padding-block: 2rem;
+}
+
+.video-card-wrapper {
+  box-sizing: border-box;
+  /*background: rgba(255, 213, 70, 0.4);
+  border: 2px dashed rgba(236, 198, 48, 0.5); */
+}
