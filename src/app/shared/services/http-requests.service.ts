@@ -9,12 +9,13 @@ import { IVideoSnipet } from "src/app/video-viewer/video-list/video-snipet.inter
 })
 
 export class HttpRequestsService {
+    private secretApiKey: string = "e2f1613941375f36068d77452af7d938";
 
     constructor(private http: HttpClient) {
     }
 
     getVideoData(): Observable<IVideoSnipet> {
-       return this.http.get<IVideoSnipet>('https://api.themoviedb.org/3/movie/popular?api_key=e2f1613941375f36068d77452af7d938&language=en-US&page=1')
+       return this.http.get<IVideoSnipet>(this.urlComposer(this.secretApiKey))
        .pipe(catchError(this.handleError<IVideoSnipet>('getVideoData')));
     }
 
@@ -23,5 +24,10 @@ export class HttpRequestsService {
             console.error(error);
             return of(result as T);
         }
+    }
+
+    private urlComposer(sercretApiKey: string, pageNum: number = 1): string {
+        return `https://api.themoviedb.org/3/movie/popular?api_key=${sercretApiKey}&language=en-US&page=${pageNum}`
+
     }
 }
