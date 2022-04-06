@@ -4,16 +4,18 @@
       <mat-card-title>{{singleMovieData.title}}</mat-card-title>
       <mat-card-subtitle>({{singleMovieData.original_title}})</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="{{posterUrlPath}}" alt="Photo of the movie">
+    <div class="img-container">
+      <img mat-card-image src="{{posterUrlPath}}" alt="Photo of the movie">
+    </div>
     <mat-card-content>
       <div class="scrollable-fix-container">
         <p>
           {{singleMovieData.overview}}
         </p>
       </div>
-      <div class="statistic-conatiner">
-        <span> Rate: {{singleMovieData.popularity}}</span>
-        <span> Votes: {{singleMovieData.vote_count}}</span>
-      </div>
     </mat-card-content>
+    <div class="statistic-conatiner">
+      <span> Rate: {{singleMovieData.popularity}}</span>
+      <span> Votes: {{singleMovieData.vote_count}}</span>
+    </div>
   </mat-card>
